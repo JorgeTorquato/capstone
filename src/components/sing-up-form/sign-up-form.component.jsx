@@ -8,14 +8,13 @@ import {
 
 import FormInput from '../form-input/form-input.component';
 
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 const defaultFormFields = {
   displayName: '',
   email: '',
   password: '',
   confirmPassword: '',
 };
-
 // Functions
 const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
@@ -38,6 +37,7 @@ const SignUpForm = () => {
         email,
         password
       );
+
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
     } catch (error) {
